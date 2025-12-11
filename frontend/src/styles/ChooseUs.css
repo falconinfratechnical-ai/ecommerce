@@ -1,0 +1,59 @@
+.why-choose-us {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.why-choose-us .title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block; 
+  padding-bottom: 8px; 
+}
+
+.why-choose-us .title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60%;         
+  height: 4px;         
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  border-radius: 2px;   
+}
+
+
+.why-choose-us .subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.why-choose-us .features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 150px;
+}
+
+.why-choose-us .feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 200px;
+}
+
+.why-choose-us .feature .icon {
+  font-size: 40px;
+  color: #007bff; /* blue icons for trust */
+  margin-bottom: 12px;
+}
+
+.why-choose-us .feature p {
+  font-size: 16px;
+  font-weight: 500;
+}

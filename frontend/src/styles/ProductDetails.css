@@ -1,0 +1,216 @@
+/*PAGE CONTAINER  */
+.product-details-container {
+  max-width: 1300px;
+  margin: 50px auto;
+  padding: 20px;
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* IMAGE SLIDER */
+.image-slider {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  background: linear-gradient(135deg, #ffffff, #f2f2f2);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+   margin-top: 105px;
+}
+
+.image-slider:hover {
+  transform: translateY(-4px);
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.slider-image:hover {
+  transform: scale(1.05);
+}
+
+/* ARROWS*/
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(6px);
+  color: #333;
+  border: none;
+  padding: 12px 16px;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.arrow:hover {
+  background: #4caf50;
+  color: white;
+  transform: translateY(-50%) scale(1.12);
+}
+
+.arrow.left { left: 12px; }
+.arrow.right { right: 12px; }
+
+/*THUMBNAILS */
+.thumbnail-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 305px;
+  width: 460px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.thumbnail {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 8px;
+  background: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+  transform: translateY(-4px);
+  border-color: #4caf50;
+}
+
+.thumbnail.active {
+  border-color: #4caf50;
+  box-shadow: 0 6px 18px rgba(76,175,80,0.3);
+}
+
+/*  PRODUCT DETAILS BOX */
+.details-box {
+  flex: 1;
+  padding: 20px 10px;
+  animation: slideIn 0.6s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(15px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.details-box h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #333, #666);
+  -webkit-background-clip: text; 
+  background-clip: text;         
+  color: transparent;
+}
+
+
+.price {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2e7d32;
+  margin-bottom: 20px;
+  padding: 8px 0;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.details-box p {
+  margin: 8px 0;
+  font-size: 1.15rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+.details-box strong {
+  color: #222;
+}
+
+.description {
+  margin-top: 20px;
+  color: #555;
+  font-size: 1.1rem;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+/*RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .image-slider {
+    width: 100%;
+    height: 330px;
+  }
+  .thumbnail-row {
+    width: 100%;
+  }
+  .details-box h1 {
+    font-size: 1.8rem;
+  }
+  .price {
+    font-size: 1.6rem;
+  }
+}
+.cart-btn{
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: #a9acdb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.cart-btn:hover {
+  background-color: #0010f1;
+  transform: translateY(-3px);
+}
+.back-arrow {
+  position: absolute;
+  top: 150px;
+  left: 40px;
+  background: rgba(255,255,255,0.85);
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: all 0.25s ease;
+  z-index: 5;
+}
+
+.back-arrow:hover {
+  background: #4caf50;
+  color: white;
+  transform: translateX(-5px);
+}
