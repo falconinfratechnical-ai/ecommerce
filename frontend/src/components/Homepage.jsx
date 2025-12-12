@@ -12,9 +12,9 @@ import ChooseUs from "./ChooseUs";
 import Categories from "./Categories.jsx";
 import bosch from "../assets/img/bosch.png";
 import cat from "../assets/img/CAT.png";
-import johndeere from "../assets/img/johnDeere.jpg";
-import kirloskar from "../assets/img/kirloskar.png";
-import mitsubishi from "../assets/img/mitsubishi.png";
+import johndeere from "../assets/img/JohnDeere.jpg";
+import kirloskar from "../assets/img/Kirloskar.png";
+import mitsubishi from "../assets/img/Mitsubishi.png";
 import ServiceSupport from "./ServiceSupport.jsx"
 import packingImg from "../assets/packing.jpg";
 // import ProductDetails from "./ProductDetails.jsx";
