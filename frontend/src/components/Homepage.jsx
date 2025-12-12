@@ -9,7 +9,7 @@ import textileImg from "../assets/textile.jpg";
 import transportImg from "../assets/trasnsport.jpg";
 import thermalImg from "../assets/thermal.jpg";
 import ChooseUs from "./ChooseUs";
-import Categories from "./categories.jsx";
+import Categories from "./Categories.jsx";
 import bosch from "../assets/img/bosch.png";
 import cat from "../assets/img/CAT.png";
 import johndeere from "../assets/img/johnDeere.jpg";
