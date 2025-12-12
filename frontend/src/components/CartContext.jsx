@@ -8,8 +8,25 @@ export const CartProvider = ({ children }) => {
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
+  const [total, setTotal] = useState(0);
+  const [cartQuantity, setCartQuantity] = useState(0);
+
+  // 🟢 Save to localStorage when cart changes
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  // 🟢 Recalculate TOTAL & CART QUANTITY when cart changes
+  useEffect(() => {
+    const newTotal = cart.reduce((sum, item) => {
+      const price = item.offerPrice || item.price || 0;
+      return sum + price * item.quantity;
+    }, 0);
+
+    const newCartQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    setTotal(newTotal);
+    setCartQuantity(newCartQty);
   }, [cart]);
 
   // Add product to cart 
@@ -31,7 +48,6 @@ export const CartProvider = ({ children }) => {
             quantity: 1
           }
         ];
-
       }
     });
   };
@@ -49,20 +65,16 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  // Total price
-  const total = cart.reduce(
-    (sum, item) =>
-      sum + ((item.offerPrice || item.price || 0) * (item.quantity || 1)),
-    0
-  );
-
-
-  // Cart icon quantity (sum of all quantities)
-  const cartQuantity = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-
   return (
     <CartContext.Provider
-      value={{ cart, cartQuantity, addToCart, removeFromCart, updateQuantity, total }}
+      value={{
+        cart,
+        cartQuantity,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        total,
+      }}
     >
       {children}
     </CartContext.Provider>
