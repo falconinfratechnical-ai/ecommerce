@@ -81,10 +81,10 @@ export default function AddProduct() {
         },
       });
 
-      // ✅ NEW PRODUCT COMES FIRST
+      //  NEW PRODUCT COMES FIRST
       setProducts([res.data.product, ...products]);
 
-      // ✅ RESET FORM
+      //  RESET FORM
       setMachineName("");
       setCategory("");
       setBrand("");
@@ -104,7 +104,7 @@ export default function AddProduct() {
     }
   };
 
-  // ✅ DELETE
+  //  DELETE
   const deleteProduct = async (id) => {
     const token = localStorage.getItem("token");
 
@@ -123,7 +123,7 @@ export default function AddProduct() {
     }
   };
 
-  // ✅ START EDIT
+  //  START EDIT
   const startEdit = (product) => {
     setEditingId(product._id);
     setEditData({
@@ -140,7 +140,7 @@ export default function AddProduct() {
     });
   };
 
-  // ✅ SAVE EDIT
+  //  SAVE EDIT
   const saveEdit = async (id) => {
     try {
       const token = localStorage.getItem("token");

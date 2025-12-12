@@ -1,36 +1,22 @@
 import express from "express";
 import Contact from "../schema/contact.js";
-import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-
-dotenv.config();
+import { sendEmail } from "../utils/mailer.js";
 
 const router = express.Router();
 
-// Email setup
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.ALERT_EMAIL,
-    pass: process.env.ALERT_EMAIL_PASS,
-  },
-});
-
-// Contact Form API
 router.post("/contact", async (req, res) => {
   try {
     const { name, email, phone, message } = req.body;
 
-    // Save to MongoDB
+    // Save message to MongoDB
     await Contact.create({ name, email, phone, message });
 
-    // Email content
-    const mailOptions = {
-      from: process.env.ALERT_EMAIL,
+    // Email to YOU (site owner)
+    await sendEmail({
       to: process.env.ORDER_NOTIFICATION_EMAIL,
-      subject: "New Contact Form Submission",
+      subject: "📩 New Contact Form Submission",
       html: `
-        <h2>New Contact Message</h2>
+        <h2><u>FEEDBACK</u></h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
@@ -38,14 +24,24 @@ router.post("/contact", async (req, res) => {
         <hr />
         <p>Submitted on: ${new Date().toLocaleString()}</p>
       `,
-    };
+    });
 
-    // Send Email
-    await transporter.sendMail(mailOptions);
+    // Confirmation email to customer (optional)
+    await sendEmail({
+      to: email,
+      subject: "Thanks for contacting MMShoppe",
+      html: `
+        <h2>Hello ${name},</h2>
+        <p>Thank you for reaching out. We received your message and will get back to you soon.</p>
+        <hr />
+        <p><strong>Your message:</strong></p>
+        <p>${message}</p>
+      `,
+    });
 
-    res.status(200).json({ message: "Form submitted and email sent successfully!" });
+    res.status(200).json({ message: "Form submitted successfully!" });
   } catch (error) {
-    console.error("Error saving contact data or sending email:", error);
+    console.error("Contact form error:", error);
     res.status(500).json({ message: "Error occurred" });
   }
 });

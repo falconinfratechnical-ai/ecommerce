@@ -1,19 +1,24 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+import dotenv from "dotenv";
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.ALERT_EMAIL,
-    pass: process.env.ALERT_EMAIL_PASS
+dotenv.config();
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Function to send emails
+export const sendEmail = async ({ to, subject, html }) => {
+  try {
+    const result = await resend.emails.send({
+      from: "MMShoppes <onboarding@resend.dev>", 
+      to,
+      subject,
+      html,
+    });
+
+    console.log("📩 Email sent:", result);
+    return result;
+  } catch (err) {
+    console.error("❌ Email Error:", err);
+    throw err;
   }
-});
-
-transporter.verify((err) => {
-  if (err) {
-    console.error("❌ Nodemailer error:", err);
-  } else {
-    console.log("✅ Nodemailer is ready");
-  }
-});
-
-export default transporter; 
+};
