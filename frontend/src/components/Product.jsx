@@ -13,7 +13,8 @@ const Products = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    let url = "http://localhost:5000/api/products";
+  let url = `${import.meta.env.VITE_API_URL}/api/products`;
+
 
     if (categoryFilter) {
       url += `?category=${categoryFilter}`;
