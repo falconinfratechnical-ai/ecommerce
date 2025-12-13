@@ -4,7 +4,7 @@ import { MdEmail, MdPhone, MdLocationPin } from "react-icons/md";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Contact = () => {
-
+ window.scrollTo(0, 0);
   const [formData, setFormData] = useState({
     name: "",
     email: "",

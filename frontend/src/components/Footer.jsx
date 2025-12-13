@@ -43,7 +43,7 @@ Your growth starts with the right tools — and we’re here to provide them.
                     <a href="/about">About us</a>
                     <a href="/products">Products</a>
                     <a href="/contact">Contact us</a>
-                    <a href="/login">Login</a>
+                    {/* <a href="/login">Login</a> */}
                 </div>
                 <div className="footer-col social-section">
                     <h3>Follow Us</h3>
@@ -61,8 +61,8 @@ Your growth starts with the right tools — and we’re here to provide them.
                             <img src={you} alt="facebook" className="social-img1" />
                         </a>
                     </div>
-                    <p className="support">Support: +91 9447955444</p>
-                    <p className="support">mmshoppes@gmail.com</p>
+                    <a href="tel:+917510155444">+91 7510155444</a>
+                      <a href="mailto:mmshoppes@gmail.com">mmshoppes@gmail.com</a>
                 </div>
             </div>
             <hr className="footer-divider" />
