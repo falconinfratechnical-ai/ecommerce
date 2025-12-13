@@ -71,7 +71,7 @@
 }
 
 /* Product Card */
-.product-card {
+/* .product-card {
   margin-top: 35px;
   background: #fff;
   border-radius: 15px;
@@ -82,7 +82,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 90%;     
-}
+} */
 
 /* Product Image */
 .product-card img {
