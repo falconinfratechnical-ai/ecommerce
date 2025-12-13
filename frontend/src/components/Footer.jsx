@@ -61,8 +61,8 @@ Your growth starts with the right tools — and we’re here to provide them.
                             <img src={you} alt="facebook" className="social-img1" />
                         </a>
                     </div>
-                    <p className="support">Support: +91 98989898 / 987 987</p>
-                    <p className="support">Email: shop@.com</p>
+                    <p className="support">Support: +91 9447955444</p>
+                    <p className="support">mmshoppes@gmail.com</p>
                 </div>
             </div>
             <hr className="footer-divider" />
