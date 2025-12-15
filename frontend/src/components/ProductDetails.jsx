@@ -10,13 +10,16 @@ const ProductDetails = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const { cart, addToCart, updateQuantity } = useContext(CartContext);
 
-  useEffect(() => {
-     window.scrollTo(0, 0);
-    fetch(`http://localhost:5000/api/products/${id}`)
-      .then(res => res.json())
-      .then(data => setProduct(data))
-      .catch(err => console.log(err));
-  }, [id]);
+useEffect(() => {
+  window.scrollTo(0, 0);
+
+  const url = `${import.meta.env.VITE_API_URL}/api/products/${id}`;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => setProduct(data))
+    .catch((err) => console.log(err));
+}, [id]);
 
   const cartItem = cart.find(item => item._id === id);
   const quantity = cartItem ? cartItem.quantity : 0;
