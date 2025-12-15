@@ -99,7 +99,6 @@ const Contact = () => {
           </button>
         </div>
 
-        {/* Middle Contact Details */}
         <div className="contact-middle">
   <h3 className="person-name">
     <u>For Trade Enquiry</u>

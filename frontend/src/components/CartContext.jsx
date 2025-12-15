@@ -11,12 +11,9 @@ export const CartProvider = ({ children }) => {
   const [total, setTotal] = useState(0);
   const [cartQuantity, setCartQuantity] = useState(0);
 
-  // 🟢 Save to localStorage when cart changes
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
-
-  // 🟢 Recalculate TOTAL & CART QUANTITY when cart changes
   useEffect(() => {
     const newTotal = cart.reduce((sum, item) => {
       const price = item.offerPrice || item.price || 0;
@@ -29,7 +26,6 @@ export const CartProvider = ({ children }) => {
     setCartQuantity(newCartQty);
   }, [cart]);
 
-  // Add product to cart 
   const addToCart = (product) => {
     setCart((prev) => {
       const existing = prev.find((item) => item._id === product._id);

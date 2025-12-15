@@ -2,12 +2,12 @@ import { useContext, useState } from "react";
 import { CartContext } from "../components/CartContext.jsx";
 import "../styles/CartPage.css";
 import { useNavigate } from "react-router-dom";
-import CheckoutForm from "./CheckoutForm"; // ✅ import form
+import CheckoutForm from "./CheckoutForm"; 
 
 const Cart = () => {
   const navigate = useNavigate();
   const { cart, total, removeFromCart, updateQuantity } = useContext(CartContext);
-  const [showCheckout, setShowCheckout] = useState(false); // ✅ state
+  const [showCheckout, setShowCheckout] = useState(false);
 
   return (
     <div className="cart-container">
@@ -67,20 +67,16 @@ const Cart = () => {
           <h2 className="cart-total">
             Total: ₹{(total || 0).toLocaleString()}
           </h2>
-
-          {/* ✅ Place Order Button */}
           {!showCheckout && (
             <div className="place-order-container">
               <button
                 className="place-order-btn"
-                onClick={() => setShowCheckout(true)} // ✅ show form
+                onClick={() => setShowCheckout(true)} 
               >
                 Place Order
               </button>
             </div>
           )}
-
-          {/* ✅ Checkout Form Appears Here */}
           {showCheckout && <CheckoutForm cart={cart} total={total} />}
         </>
       )}
