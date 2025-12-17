@@ -3,79 +3,100 @@ import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo3.png";
 import { CartContext } from "./CartContext.jsx";
-import { CiSearch, CiUser, CiShoppingCart  } from "react-icons/ci";
-// import { IoChatbubbles } from "react-icons/io5";
-import whatsappIcon from "../assets/whatsapp.jpg"
-
-
+import { CiSearch, CiUser, CiShoppingCart, CiMenuBurger } from "react-icons/ci";
+import { IoClose } from "react-icons/io5";
+import whatsappIcon from "../assets/whatsapp.jpg";
 
 const Navbar = () => {
   const { cart } = useContext(CartContext);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  // 🔍 fetch search results
-  const handleSearch = async (e) => {
-    window.scrollTo(0, 0);
-    const value = e.target.value;
-    setQuery(value);
+  // 🔍 Search handler
+const handleSearch = async (e) => {
+  const value = e.target.value;
+  setQuery(value);
 
-    if (value.trim() === "") {
-      setResults([]);
-      return;
-    }
-    try {
-      const res = await fetch(`http://localhost:5000/api/products/search?q=${value}`);
-      const data = await res.json();
-      setResults(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  if (value.trim() === "") {
+    setResults([]);
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/products/search?q=${value}`
+    );
+
+    if (!res.ok) throw new Error("Search failed");
+
+    const data = await res.json();
+    setResults(data);
+  } catch (err) {
+    console.error("Search error:", err);
+  }
+};
 
   return (
     <header className="navbar">
       <div className="nav-container">
 
+        {/* LOGO */}
         <div className="nav-left">
-          <Link to="/">
+          <Link to="/" onClick={() => setMenuOpen(false)}>
             <img src={logo} className="nav-logo" alt="logo" />
           </Link>
         </div>
 
-        <nav className="nav-links">
-          <Link to="/">HOME</Link>
-          <Link to="/products">PRODUCTS</Link>
-          <Link to="/about">ABOUT US</Link>
-          <Link to="/contact">CONTACT US</Link>
-          <Link to="/admin/login">ADMIN</Link>
+        {/* NAV LINKS */}
+        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <Link to="/" onClick={() => setMenuOpen(false)}>HOME</Link>
+          <Link to="/products" onClick={() => setMenuOpen(false)}>PRODUCTS</Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)}>ABOUT US</Link>
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>CONTACT US</Link>
+          <Link to="/admin/login" onClick={() => setMenuOpen(false)}>ADMIN</Link>
         </nav>
 
+        {/* ICONS */}
         <div className="nav-icons">
- <div className="customer-care">
-            <img src={whatsappIcon} alt="WhatsApp" className="nav-icon" />
-            <a href="tel:+917510155444" className="phone-number">+91 7510155444</a>
-         </div>
-          {/* 🔍 Toggle Search Bar */}
+
+          {/* CUSTOMER CARE */}
+          <div className="customer-care">
+            <img src={whatsappIcon} alt="WhatsApp" />
+            <a href="tel:+917510155444" className="phone-number">
+              +91 7510155444
+            </a>
+          </div>
+
+          {/* SEARCH */}
           <CiSearch
-            size={25}
+            size={24}
             className="nav-icon"
             onClick={() => setSearchOpen(!searchOpen)}
           />
 
-          <CiUser size={25} className="nav-icon" />
+          {/* USER */}
+          <CiUser size={24} className="nav-icon" />
 
+          {/* CART */}
           <Link to="/cart" className="cart-icon-container">
-            <CiShoppingCart size={27} className="nav-icon" />
+            <CiShoppingCart size={26} className="nav-icon" />
             {totalItems > 0 && (
               <span className="cart-count">{totalItems}</span>
             )}
           </Link>
+
+          {/* HAMBURGER */}
+          <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <IoClose size={26} /> : <CiMenuBurger size={26} />}
+          </div>
         </div>
       </div>
+
+      {/* SEARCH BAR */}
       {searchOpen && (
         <div className="search-bar-container">
           <input
@@ -99,7 +120,7 @@ const Navbar = () => {
                     setResults([]);
                   }}
                 >
-                  <img src={item.images[0]} alt="" />
+                  <img src={item.images[0]} alt={item.machineName} />
                   <span>{item.machineName}</span>
                 </Link>
               ))}
