@@ -1,0 +1,85 @@
+.about-content {
+  max-width: 1800px;
+  margin: -60px auto 80px;
+  background: #ffffff;
+  padding: 50px 60px;
+  border-radius: 14px;
+}
+
+/* ===== Headings ===== */
+.about-content h2 {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 22px;
+  border-left: 5px solid #2563eb;
+  padding-left: 15px;
+}
+
+
+.about-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1d4ed8;
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+
+
+/* ===== Paragraphs ===== */
+.about-content p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #374151;
+  margin-bottom: 15px;
+}
+
+/* ===== Lists ===== */
+.about-content ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.about-content ul li {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #374151;
+  margin-bottom: 6px;
+  position: relative;
+  padding-left: 15px;
+}
+.about-content a {
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.about-content a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Contact Highlight ===== */
+.about-content p:last-child {
+  background: #f1f5f9;
+  padding: 15px 20px;
+  border-left: 5px solid #1d4ed8;
+  border-radius: 6px;
+  max-width: 600px;
+  font-weight: 500;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .products-heading {
+    font-size: 2.2rem;
+  }
+
+  .products-subtitle {
+    font-size: 1rem;
+  }
+
+  .about-content {
+    padding: 30px 25px;
+    margin-top: -40px;
+  }
+}

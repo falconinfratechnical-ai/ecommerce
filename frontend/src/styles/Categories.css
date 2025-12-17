@@ -7,7 +7,7 @@
 }
 
 .category-card {
-  width: 300px;
+  width: 400px;
   background: #fff;
   border-radius: 15px;
   padding: 20px;
@@ -17,10 +17,10 @@
 }
 
 .category-card img {
-  width: 100%;
+  width: 350px;
   height: 224px;
   object-fit: cover;
-  border-radius: 12px;
+  /* border-radius: 12px; */
 }
 
 .category-card h3 {

@@ -34,9 +34,9 @@ Your growth starts with the right tools — and we’re here to provide them.
                <div className="footer-col">
                     <h3>Contact Us</h3>
                     <a href="#">Shipping policy</a>
-                    <a href="#">Terms and conditions</a>
-                    <a href="#">Privacy and policy</a>
-                    <a href="#">Refund and return policy</a>
+                    <a href="/terms">Terms and conditions</a>
+                    <a href="/privacy" >Privacy and policy</a>
+                    <a href="return">Refund and return policy</a>
                 </div>
                 <div className="footer-col">
                     <h3>Quick Links</h3>
@@ -75,7 +75,7 @@ Your growth starts with the right tools — and we’re here to provide them.
                     <img src={bitcoin} alt="Bitcoin" />
                 </div>
 
-                <p>All Rights Reserved © 2025 , Powered by Wondermill Studio Pvt Ltd</p>
+                <p>All Rights Reserved © 2025 , Powered by Wondermill Studio LLP</p>
             </div>
         </footer>
     );

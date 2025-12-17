@@ -12,6 +12,9 @@ import Cart from "./components/CartPage.jsx";
 import AboutUs from "./components/AboutUs.jsx";
 import Contact from "./components/ContactUs.jsx";
 import { CartProvider } from "./components/CartContext.jsx";
+import Privacy from "./components/Privacy.jsx";
+import Terms from "./components/Terms.jsx";
+import ReturnPolicy from "./components/ReturnPolicy.jsx";
 
 function App() {
   return (
@@ -28,6 +31,10 @@ function App() {
           <Route path="/cart" element={<Cart />} />
                <Route path="/about" element={<AboutUs />} />
                        <Route path="/contact" element={<Contact />} />
+
+                         <Route path="/privacy" element={<Privacy />} />
+                         <Route path="/terms" element={<Terms />} />
+                          <Route path="/return" element={<ReturnPolicy />} />
 
           <Route path="/admin/login" element={<AdminLogin />} />
 

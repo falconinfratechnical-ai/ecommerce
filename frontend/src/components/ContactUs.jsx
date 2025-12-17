@@ -133,7 +133,12 @@ road jn. Eloor udhyogamandal P.O., Cochin-683501<br />
 
         {/* Google Map */}
         <div className="contact-right">
-          <iframe title="map" src="https://www.google.com/maps/embed?pb=..." loading="lazy"></iframe>
+         <iframe
+    title="mmSHOPPE Location"
+    src="https://www.google.com/maps?q=Falcon%20Infrastructure%20Ltd,%20Eloor,%20Kochi,%20Kerala%20683501&output=embed"
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  ></iframe>
         </div>
       </div>
     </>
