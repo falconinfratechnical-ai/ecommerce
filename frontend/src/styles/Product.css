@@ -63,8 +63,8 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 35px;
-  align-items: stretch;     /* ensure grid items stretch to same height */
-  grid-auto-rows: 1fr;      /* make rows equal height */
+  align-items: stretch;    
+  grid-auto-rows: 1fr;    
 }
 @media (max-width: 1200px) {
   .products-grid {

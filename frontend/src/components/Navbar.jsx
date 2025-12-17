@@ -96,38 +96,50 @@ const handleSearch = async (e) => {
         </div>
       </div>
 
-      {/* SEARCH BAR */}
-      {searchOpen && (
-        <div className="search-bar-container">
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={query}
-            onChange={handleSearch}
-            className="search-input"
-          />
+     {searchOpen && (
+  <div className="search-bar-container">
+    <div className="search-input-wrapper">
+      <input
+        type="text"
+        placeholder="Search products..."
+        value={query}
+        onChange={handleSearch}
+        className="search-input"
+      />
+      <button
+        className="search-close-btn"
+        onClick={() => {
+          setSearchOpen(false);
+          setQuery("");
+          setResults([]);
+        }}
+      >
+        ✕
+      </button>
+    </div>
 
-          {results.length > 0 && (
-            <div className="search-results">
-              {results.map((item) => (
-                <Link
-                  to={`/product/${item._id}`}
-                  key={item._id}
-                  className="search-item"
-                  onClick={() => {
-                    setSearchOpen(false);
-                    setQuery("");
-                    setResults([]);
-                  }}
-                >
-                  <img src={item.images[0]} alt={item.machineName} />
-                  <span>{item.machineName}</span>
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
+    {results.length > 0 && (
+      <div className="search-results">
+        {results.map((item) => (
+          <Link
+            to={`/product/${item._id}`}
+            key={item._id}
+            className="search-item"
+            onClick={() => {
+              setSearchOpen(false);
+              setQuery("");
+              setResults([]);
+            }}
+          >
+            <img src={item.images[0]} alt={item.machineName} />
+            <span>{item.machineName}</span>
+          </Link>
+        ))}
+      </div>
+    )}
+  </div>
+)}
+
     </header>
   );
 };

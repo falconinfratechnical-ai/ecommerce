@@ -1,7 +1,3 @@
-/* =============================== */
-/*    MAIN NAVBAR STYLES           */
-/* =============================== */
-
 .navbar {
   width: 100%;
   background: #fff;
@@ -65,8 +61,6 @@
   transform: scale(1.08);
   border-color: #7ac144;
 }
-
-/* SEARCH + CART SECTION */
 .nav-icons {
   display: flex;
   align-items: center;
@@ -89,10 +83,6 @@
   border-radius: 50%;
   font-weight: bold;
 }
-
-/* =============================== */
-/*    SEARCH BAR OPEN AREA         */
-/* =============================== */
 
 .search-bar-container {
   width: 100%;
@@ -169,6 +159,39 @@
   border-radius: 10px;
 }
 
+/* Search Input Wrapper */
+.search-input-wrapper {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+}
+
+/* Exit / Close Button */
+.search-close-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #555;
+  padding: 4px;
+  line-height: 1;
+}
+
+.search-close-btn:hover {
+  color: #e11d48;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .search-input-wrapper {
+    width: 100%;
+  }
+}
+
 /* CUSTOMER CARE */
 .customer-care {
   display: flex;
@@ -200,9 +223,6 @@
   object-fit: contain;
 }
 
-/* =============================== */
-/*           RESPONSIVE           */
-/* =============================== */
 
 /* Tablets & Small Laptops */
 @media (max-width: 1024px) {

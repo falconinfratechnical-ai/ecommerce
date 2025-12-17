@@ -62,7 +62,7 @@ function ReturnPolicy() {
         <h3>5. How to Raise a Return Request</h3>
         <p>You can initiate a return or replacement by:</p>
         <ul>
-          <li>📞 Calling: <strong>+91 8595858422</strong></li>
+          <li>📞 Calling: <strong>+91 7510155444</strong></li>
           <li>📧 Emailing your Order ID and issue details</li>
         </ul>
 
@@ -113,7 +113,7 @@ function ReturnPolicy() {
         <h3>Contact Us</h3>
         <p>
           📧 Email: <strong>support@mmshoppe.store</strong><br />
-          📞 Customer Support: <strong>+91 8595858422</strong><br />
+          📞 Customer Support: <strong>+91 7510155444</strong><br />
           🌐 Website: <strong>https://www.mmshoppe.store</strong>
         </p>
 

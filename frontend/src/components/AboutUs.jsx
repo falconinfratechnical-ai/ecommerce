@@ -27,10 +27,9 @@ function AboutUs() {
         </p>
         <p>
           As a specialized ecommerce platform, MMShoppe offers a wide and expanding range of machinery, with a strong focus on food equipment and food-processing machines such as grinders, mixers, slicers, dough machines, ovens, sealing machines, dehydrators, and commercial kitchen tools. Along with this, we also cater to agricultural and industrial machinery requirements to support diverse operational needs.
-
-          We take pri
         </p>
-        <p>We take pride in delivering equipment that is innovative, reliable, and built to perform. Our products are designed to be efficient, durable, and easy to maintain—helping businesses achieve consistent, high-quality results.
+        <p>📌
+          We take pride in delivering equipment that is innovative, reliable, and built to perform. Our products are designed to be efficient, durable, and easy to maintain—helping businesses achieve consistent, high-quality results.
 
           At MMShoppe, we are committed to providing exceptional service, fast support, and a hassle-free buying experience. As we continue to grow, our promise remains the same:
           to be your trusted partner for all food equipment and machinery needs.</p>

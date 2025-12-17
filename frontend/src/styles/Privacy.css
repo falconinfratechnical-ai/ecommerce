@@ -6,7 +6,7 @@
   border-radius: 14px;
 }
 
-/* ===== Headings ===== */
+/*  Headings  */
 .about-content h2 {
   font-size: 1.9rem;
   font-weight: 600;
@@ -26,7 +26,7 @@
 }
 
 
-/* ===== Paragraphs ===== */
+/*  Paragraphs  */
 .about-content p {
   font-size: 1rem;
   line-height: 1.8;
@@ -34,7 +34,7 @@
   margin-bottom: 15px;
 }
 
-/* ===== Lists ===== */
+/*  List*/
 .about-content ul {
   padding-left: 20px;
   margin-bottom: 20px;
@@ -58,17 +58,18 @@
   text-decoration: underline;
 }
 
-/* ===== Contact Highlight ===== */
+/*Contact Highlight */
 .about-content p:last-child {
   background: #f1f5f9;
   padding: 15px 20px;
   border-left: 5px solid #1d4ed8;
   border-radius: 6px;
+   text-align: justify;
   max-width: 600px;
   font-weight: 500;
 }
 
-/* ===== Responsive Design ===== */
+/*  Responsive Design  */
 @media (max-width: 768px) {
   .products-heading {
     font-size: 2.2rem;
