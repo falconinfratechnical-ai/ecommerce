@@ -55,10 +55,13 @@ const Products = () => {
 
         <div className="products-grid">
           {loading ? (
-            <div className="loader-container">
-              <div className="spinner"></div>
-              <p>Loading products, please wait...</p>
-            </div>
+            <div class="loading">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
           ) : products.length === 0 ? (
             <p>No products found.</p>
           ) : (

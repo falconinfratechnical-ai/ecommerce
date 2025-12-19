@@ -98,7 +98,7 @@ const handleSearch = async (e) => {
 
      {searchOpen && (
   <div className="search-bar-container">
-    <div className="search-input-wrapper">
+    <div className="InputContainer">
       <input
         type="text"
         placeholder="Search products..."

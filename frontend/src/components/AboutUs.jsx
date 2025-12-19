@@ -39,14 +39,19 @@ function AboutUs() {
         <div className="mv-card">
           <h2>Our Mission</h2>
           <p>
-            Creating awareness and accessibility of affordable farm machines and building
-            strong service networks to increase farmer comfort and create sustainable growth.
+          To democratize access to high-quality, innovative machinery by making reliable food,
+           agricultural, and industrial equipment affordable, accessible, and easy to use—while
+            building strong service ecosystems that empower farmers, entrepreneurs, and businesses
+             to grow sustainably and efficiently.
           </p>
         </div>
         <div className="mv-card">
           <h2>Our Vision</h2>
           <p>
-            To empower agriculture through innovative mechanized solutions.
+            To become India’s most trusted digital destination for mechanized solutions,
+             transforming agriculture and food processing through innovation, sustainability,
+              and inclusive growth—where modern machinery strengthens livelihoods, communities,
+               and the future of food.
           </p>
         </div>
       </div>

@@ -19,9 +19,9 @@ const ProductDetails = () => {
   });
 
   const { cart, addToCart, updateQuantity } = useContext(CartContext);
-
-  useEffect(() => {
     window.scrollTo(0, 0);
+  useEffect(() => {
+
 
     const fetchProduct = async () => {
       try {
@@ -87,10 +87,13 @@ const ProductDetails = () => {
 
   if (loading) {
     return (
-      <div className="loader-container">
-        <div className="spinner"></div>
-        <p>Loading product...</p>
-      </div>
+      <div  className="loading">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
     );
   }
 
@@ -170,8 +173,9 @@ const ProductDetails = () => {
         )}
 
         {/* ADD TO CART */}
-        <button className="cart-btn" onClick={handleAddToCart}>
-          Add to Cart
+        <button className="btn" onClick={handleAddToCart}>
+         <span className="btn-text-one">buy now</span>
+         <span className="btn-text-two"> add to cart</span>
         </button>
       </div>
 
