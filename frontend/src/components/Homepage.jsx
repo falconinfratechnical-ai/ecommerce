@@ -22,12 +22,31 @@ import packingImg from "../assets/packing.jpg";
 import banner1 from "../assets/banner3.png";
 import banner2 from "../assets/banner1.png";
 import banner3 from "../assets/banner5.png";
+import ProductSlider from "./ProductSlider.jsx";
 
 export default function Hero() {
 
   const images = [ banner2,banner3, banner1 ];
   const [currentIndex, setCurrentIndex] = useState(0);
   const hasScrolledRef = useRef(false);
+const [products, setProducts] = useState([]);
+
+
+useEffect(() => {
+  const fetchProducts = async () => {
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/products`
+      );
+      const data = await res.json();
+      setProducts(data);
+    } catch (err) {
+      console.error("Failed to fetch products", err);
+    }
+  };
+
+  fetchProducts();
+}, []);
 
 
 useEffect(() => {
@@ -93,6 +112,13 @@ useEffect(() => {
       <div className="h3">
         <h3 className="category">Top Sellers</h3>
         <Categories />
+      </div>
+      <div>
+        <ProductSlider
+  title="Top Selling Products"
+  products={products}
+/>
+
       </div>
       <ChooseUs />
 

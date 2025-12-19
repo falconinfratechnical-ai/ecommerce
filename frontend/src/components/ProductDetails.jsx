@@ -11,16 +11,23 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const [currentImage, setCurrentImage] = useState(0);
 
+  // 🔍 ZOOM STATE
+  const [zoom, setZoom] = useState({
+    show: false,
+    x: 0,
+    y: 0,
+  });
+
   const { cart, addToCart, updateQuantity } = useContext(CartContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
     const fetchProduct = async () => {
-      setLoading(true);
       try {
-        const url = `${import.meta.env.VITE_API_URL}/api/products/${id}`;
-        const res = await fetch(url);
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/products/${id}`
+        );
         const data = await res.json();
         setProduct(data);
       } catch (err) {
@@ -33,30 +40,61 @@ const ProductDetails = () => {
     fetchProduct();
   }, [id]);
 
-  const cartItem = cart.find(item => item._id === id);
-  const quantity = cartItem ? cartItem.quantity : 0;
+  // 🔍 HANDLE ZOOM (tracks mouse position)
+  const handleZoom = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    setZoom({
+      show: true,
+      x,
+      y,
+    });
+  };
+
+  const cartItem = cart.find((item) => item._id === id);
+  const quantity = cartItem ? cartItem.quantity : 1;
+
+  const increaseQty = () => {
+    updateQuantity(id, quantity + 1);
+  };
+
+  const decreaseQty = () => {
+    if (quantity > 1) {
+      updateQuantity(id, quantity - 1);
+    }
+  };
+
+  const handleAddToCart = () => {
+    if (!cartItem) {
+      addToCart(product, 1);
+    }
+  };
+
+  const handlePrev = () => {
+    setCurrentImage((prev) =>
+      prev === 0 ? product.images.length - 1 : prev - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentImage((prev) =>
+      prev === product.images.length - 1 ? 0 : prev + 1
+    );
+  };
 
   if (loading) {
     return (
       <div className="loader-container">
         <div className="spinner"></div>
-        <p>Loading product details, please wait...</p>
+        <p>Loading product...</p>
       </div>
     );
   }
-  if (!product) {
-    return <p>Product not found.</p>;
-  }
 
-  const handlePrev = () =>
-    setCurrentImage(prev =>
-      prev === 0 ? product.images.length - 1 : prev - 1
-    );
-
-  const handleNext = () =>
-    setCurrentImage(prev =>
-      prev === product.images.length - 1 ? 0 : prev + 1
-    );
+  if (!product) return <p>Product not found</p>;
 
   return (
     <div className="product-details-container">
@@ -64,81 +102,116 @@ const ProductDetails = () => {
         ← Back
       </button>
 
-      {/* Image Slider */}
-      <div className="image-slider">
-        <button className="arrow left" onClick={handlePrev}>❮</button>
-        <img
-          src={product.images[currentImage]}
-          alt="Product"
-          className="slider-image"
-        />
-        <button className="arrow right" onClick={handleNext}>❯</button>
-      </div>
+      {/* LEFT COLUMN */}
+      <div className="left-column">
 
-      {/* Thumbnails */}
-      <div className="thumbnail-row">
-        {product.images.map((img, index) => (
+        {/* IMAGE SLIDER (HOVER SOURCE) */}
+        <div
+          className="image-slider zoom-source"
+          onMouseMove={handleZoom}
+          onMouseLeave={() => setZoom({ show: false })}
+        >
+    
+
           <img
-            key={index}
-            src={img}
-            className={`thumbnail ${currentImage === index ? "active" : ""}`}
-            onClick={() => setCurrentImage(index)}
+            src={product.images[currentImage]}
+            alt="Product"
+            className="slider-image"
           />
-        ))}
-      </div>
 
-      {/* Product Info */}
-      <div className="details-box">
-        <h1>{product.machineName}</h1>
+        </div>
 
-        <p className="price">
-          {product.originalPrice && (
-            <span
-              style={{
-                textDecoration: "line-through",
-                color: "#888",
-                marginRight: 8,
-              }}
-            >
-              ₹{Number(product.originalPrice).toLocaleString()}
-            </span>
-          )}
-          <span>
-            ₹{(product.offerPrice ?? product.price ?? 0).toLocaleString()}
-          </span>
-        </p>
+        {/* THUMBNAILS */}
+  <div className="thumbnail-wrapper">
 
-        <p><strong>Category:</strong> {product.category}</p>
-        <p><strong>Brand:</strong> {product.brand}</p>
-        <p><strong>Model:</strong> {product.modelNumber}</p>
-        <p><strong>Capacity:</strong> {product.capacity}</p>
-        <p><strong>Weight:</strong> {product.weight}</p>
-        <p><strong>Warranty:</strong> {product.warranty}</p>
+  {/* LEFT ARROW */}
+  <button
+    className="thumb-arrow left"
+    onClick={handlePrev}
+  >
+    ❮
+  </button>
 
-        <p className="description">{product.description}</p>
+  {/* THUMBNAILS */}
+  <div className="thumbnail-row">
+    {product.images.slice(0, 3).map((img, index) => (
+      <img
+        key={index}
+        src={img}
+        alt="thumbnail"
+        className={`thumbnail ${
+          currentImage === index ? "active" : ""
+        }`}
+        onClick={() => setCurrentImage(index)}
+      />
+    ))}
+  </div>
 
+  {/* RIGHT ARROW */}
+  <button
+    className="thumb-arrow right"
+    onClick={handleNext}
+  >
+    ❯
+  </button>
+
+</div>
+
+
+        {/* QUANTITY */}
         {cartItem && (
-          <div className="quantity-container">
-            <button
-              className="qty-btn"
-              onClick={() => updateQuantity(product._id, quantity - 1)}
-              disabled={quantity <= 1}
-            >
-              -
-            </button>
-            <span className="qty-number">{quantity}</span>
-            <button
-              className="qty-btn"
-              onClick={() => updateQuantity(product._id, quantity + 1)}
-            >
-              +
-            </button>
+          <div className="quantity-box">
+            <div className="qty-controls">
+              <button onClick={decreaseQty}>−</button>
+              <span className="qty-value">{quantity}</span>
+              <button onClick={increaseQty}>+</button>
+            </div>
           </div>
         )}
 
-        <button className="cart-btn" onClick={() => addToCart(product)}>
-          Add To Cart
+        {/* ADD TO CART */}
+        <button className="cart-btn" onClick={handleAddToCart}>
+          Add to Cart
         </button>
+      </div>
+
+      {/* RIGHT COLUMN */}
+      <div className="right-column">
+        <h1 className="product-title">{product.machineName}</h1>
+
+        <p className="price">
+          {product.originalPrice && (
+            <span className="old-price">
+              ₹{product.originalPrice.toLocaleString()}
+            </span>
+          )}
+          ₹{(product.offerPrice ?? product.price).toLocaleString()}
+        </p>
+
+        {/* 🔍 ZOOM PREVIEW BELOW PRICE */}
+        {zoom.show && (
+          <div className="zoom-preview-right">
+            <img
+              src={product.images[currentImage]}
+              alt="Zoomed"
+              style={{
+                transform: `translate(-${zoom.x}%, -${zoom.y}%) scale(2)`,
+              }}
+            />
+          </div>
+        )}
+
+        <div className="info-box">
+          <p><strong>Category:</strong> {product.category}</p>
+          <p><strong>Brand:</strong> {product.brand}</p>
+          <p><strong>Model:</strong> {product.modelNumber}</p>
+          <p><strong>Capacity:</strong> {product.capacity}</p>
+        </div>
+
+        <div className="description-box">
+          <h3>Description</h3>
+          <p>{product.description}</p>
+        </div>
       </div>
     </div>
   );

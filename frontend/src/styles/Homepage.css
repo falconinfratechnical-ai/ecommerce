@@ -163,8 +163,8 @@ img {
   font-weight: 600;
   margin-bottom: 30px;
   position: relative;
-  display: inline-block;
-  margin-left: 840px;
+  display: block;
+ text-align: center;
 }
 
 .category::after,
@@ -174,7 +174,7 @@ img {
   left: 50%;
   bottom: -9px;
   transform: translateX(-50%);
-  width: 60%;
+  width: 5.9%;
   height: 4px;
   background: linear-gradient(90deg, #007bff, #00c6ff);
   border-radius: 2px;

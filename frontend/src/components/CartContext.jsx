@@ -14,51 +14,53 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
+
   useEffect(() => {
     const newTotal = cart.reduce((sum, item) => {
       const price = item.offerPrice || item.price || 0;
       return sum + price * item.quantity;
     }, 0);
 
-    const newCartQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const newQty = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     setTotal(newTotal);
-    setCartQuantity(newCartQty);
+    setCartQuantity(newQty);
   }, [cart]);
 
-  const addToCart = (product) => {
+  const addToCart = (product, qty = 1) => {
     setCart((prev) => {
       const existing = prev.find((item) => item._id === product._id);
+
       if (existing) {
         return prev.map((item) =>
           item._id === product._id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: item.quantity + qty }
             : item
         );
-      } else {
-        return [
-          ...prev,
-          {
-            ...product,
-            price: product.offerPrice || product.price || 0,
-            quantity: 1
-          }
-        ];
       }
+
+      return [
+        ...prev,
+        {
+          ...product,
+          quantity: qty,
+          price: product.offerPrice || product.price || 0,
+        },
+      ];
     });
   };
 
-  // Remove item from cart
-  const removeFromCart = (id) => {
-    setCart((prev) => prev.filter((item) => item._id !== id));
-  };
-
-  // Update quantity 
   const updateQuantity = (id, quantity) => {
     if (quantity < 1) return;
     setCart((prev) =>
-      prev.map((item) => (item._id === id ? { ...item, quantity } : item))
+      prev.map((item) =>
+        item._id === id ? { ...item, quantity } : item
+      )
     );
+  };
+
+  const removeFromCart = (id) => {
+    setCart((prev) => prev.filter((item) => item._id !== id));
   };
 
   return (
@@ -67,8 +69,8 @@ export const CartProvider = ({ children }) => {
         cart,
         cartQuantity,
         addToCart,
-        removeFromCart,
         updateQuantity,
+        removeFromCart,
         total,
       }}
     >

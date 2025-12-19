@@ -39,28 +39,73 @@
 .mv-section {
   display: flex;
   justify-content: center;
-  font-family: 'Poppins', sans-serif;
   gap: 30px;
-  padding: 50px 20px;
+  padding: 60px 20px;
   flex-wrap: wrap;
+  font-family: 'Poppins', sans-serif;
 }
 
+/* PREMIUM CARD */
 .mv-card {
-  background: #fff;
   width: 330px;
-  padding: 25px 20px;
-  height: 190px;
-  margin-top: 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  text-align: center;
+  padding: 28px 24px;
+  border-radius: 16px;
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #fafafa
+  );
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  position: relative;
+  transition: all 0.35s ease;
+  overflow: hidden;
 }
 
+/* Accent line */
+.mv-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #e50202, #ff6a6a);
+}
+
+/* Hover effect */
+.mv-card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* Title */
 .mv-card h2 {
-  color: #e50202;
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111;
   margin-bottom: 10px;
 }
+
+/* Subtitle */
+.mv-card h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #e50202;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* Description */
+.mv-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
 .cv-title {
   font-size: 32px;
   font-weight: 600;
@@ -134,7 +179,7 @@
   height: 750px;
   margin: 80px auto;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; 
 }
 
 .info-section1::before {
