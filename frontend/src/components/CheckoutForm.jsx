@@ -90,7 +90,13 @@ const CheckoutForm = ({ cart, total }) => {
 
       <input name="gst" placeholder="GST (Optional)" onChange={handleChange} />
 
-      <button type="submit">Confirm Order ₹{total}</button>
+      <button className="button" type="submit">  <div class="wrap">
+        <p>
+          <span>✧</span>
+          <span>✦</span>
+          Confirm Order ₹{total}
+        </p>
+      </div></button>
     </form>
   );
 };
