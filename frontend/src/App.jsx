@@ -15,6 +15,7 @@ import { CartProvider } from "./components/CartContext.jsx";
 import Privacy from "./components/Privacy.jsx";
 import Terms from "./components/Terms.jsx";
 import ReturnPolicy from "./components/ReturnPolicy.jsx";
+import ShippingPolicy from "./components/Ship.jsx";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
                          <Route path="/privacy" element={<Privacy />} />
                          <Route path="/terms" element={<Terms />} />
                           <Route path="/return" element={<ReturnPolicy />} />
+                          <Route path="/ship" element={<ShippingPolicy/>} />
 
           <Route path="/admin/login" element={<AdminLogin />} />
 

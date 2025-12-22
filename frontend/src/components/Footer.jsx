@@ -6,9 +6,7 @@ import you from "../assets/youtube.png"
 import amazon from "../assets/payments/amazon.png";
 import visa from "../assets/payments/visa.jpg";
 import master from "../assets/payments/mastercard.png";
-import paypal from "../assets/payments/paypal.png";
-import bitcoin from "../assets/payments/bitcoin.png";
-
+import razor from "../assets/payments/razor.png";
 
 const Footer = () => {
     return (
@@ -36,7 +34,8 @@ Your growth starts with the right tools — and we’re here to provide them.
                     {/* <a href="#">Shipping policy</a> */}
                     <a href="/terms">Terms and conditions</a>
                     <a href="/privacy" >Privacy and policy</a>
-                    <a href="return">Refund and return policy</a>
+                    <a href="/return">Refund and return policy</a>
+                         <a href="/ship">Shipping & Delivery Policy</a>
                 </div>
                 <div className="footer-col">
                     <h3>Quick Links</h3>
@@ -49,20 +48,32 @@ Your growth starts with the right tools — and we’re here to provide them.
                     <h3>Follow Us</h3>
 
                     <div className="social-icons">
-                        <a href="#">
-                            <img src={fafa} alt="facebook" className="social-img" />
+                        <a href="https://www.youtube.com/"
+                          target="_blank"
+  rel="noopener noreferrer">
+                            <img  src={fafa} alt="facebook" className="social-img" />
                         </a>
 
-                        <a href="#">
-                            <img src={insta} alt="facebook" className="social-img" />
+                        <a href="https://www.instagram.com/"   target="_blank"
+  rel="noopener noreferrer">
+                            <img src={insta} alt="instagram" className="social-img" />
                         </a>
 
-                        <a href="#">
+                        <a href="https://www.facebook.com/"   target="_blank"
+  rel="noopener noreferrer">
                             <img src={you} alt="facebook" className="social-img1" />
                         </a>
                     </div>
                     <a href="tel:+917510155444">+91 7510155444</a>
                       <a href="mailto:mmshoppes@gmail.com">mmshoppes@gmail.com</a>
+                      <br/>
+                   <strong>  MMSHOPPE</strong>
+                   <p>
+                      ERNAKULAM,KERALA,INDIA<br/>
+                      683501
+                         </p>
+                         <strong>GST:93**********</strong>
+                        
                 </div>
             </div>
             <hr className="footer-divider" />
@@ -71,8 +82,7 @@ Your growth starts with the right tools — and we’re here to provide them.
                     <img src={amazon} alt="Amazon Pay" />
                     <img src={visa} alt="Visa" />
                     <img src={master} alt="Mastercard" />
-                    <img src={paypal} alt="PayPal" />
-                    <img src={bitcoin} alt="Bitcoin" />
+                    <img src={razor} alt="razor" />
                 </div>
 
                 <p>All Rights Reserved © 2025 , Powered by Wondermill Studio LLP</p>
