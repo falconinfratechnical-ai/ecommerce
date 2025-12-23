@@ -100,7 +100,8 @@ useEffect(() => {
       </div>
       <div className="round-category-wrapper">
         {data.map((item, index) => (
-          <div className="round-category" key={index}>
+          <div className="round-category" key={index}
+             onClick={() => navigate("/products")}>
             <div className="round-img">
               <img src={item.img} alt={item.title} />
             </div>

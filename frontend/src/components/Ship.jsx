@@ -72,7 +72,7 @@ function ShippingPolicy() {
           <li>Report the issue within <strong>24 hours</strong> of delivery</li>
         </ul>
         <p>
-          📧 Report to: <strong>support@mmshoppe.store</strong>
+          📧 Report to: <strong>mmshoppes@gmail.com</strong>
         </p>
 
         <h3>8. Delivery Delays</h3>
@@ -102,7 +102,7 @@ function ShippingPolicy() {
 
         <h3>Contact Us</h3>
         <p>
-          📧 Email: <strong>support@mmshoppe.store</strong><br />
+          📧 Email: <strong>mmshoppes@gmail.com</strong><br />
           📞 Customer Support: <strong>+91 7510155444</strong><br />
           🌐 Website: <strong>https://www.mmshoppe.store</strong>
         </p>
