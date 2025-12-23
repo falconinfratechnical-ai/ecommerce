@@ -33,7 +33,8 @@ function ReturnPolicy() {
           <li>Product significantly different from the description on the website</li>
         </ul>
         <p>
-          📧 Email for reporting damage: <strong>support@mmshoppe.store</strong>
+          📧 Email for reporting damage: <strong>mmshoppes@gmail.com
+</strong>
         </p>
 
         <h3>2. Non-Returnable Situations</h3>
@@ -112,7 +113,8 @@ function ReturnPolicy() {
 
         <h3>Contact Us</h3>
         <p>
-          📧 Email: <strong>support@mmshoppe.store</strong><br />
+          📧 Email: <strong>mmshoppes@gmail.com
+</strong><br />
           📞 Customer Support: <strong>+91 7510155444</strong><br />
           🌐 Website: <strong>https://www.mmshoppe.store</strong>
         </p>

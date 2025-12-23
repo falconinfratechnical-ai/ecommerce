@@ -30,7 +30,7 @@ Your growth starts with the right tools — and we’re here to provide them.
                    
                 </div>
                <div className="footer-col">
-                    <h3>Contact Us</h3>
+                    <h3>Let Us Help You</h3>
                     {/* <a href="#">Shipping policy</a> */}
                     <a href="/terms">Terms and conditions</a>
                     <a href="/privacy" >Privacy and policy</a>
